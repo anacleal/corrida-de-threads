@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200112L
 #ifndef CORRIDA_H
 #define CORRIDA_H
 #include <pthread.h>

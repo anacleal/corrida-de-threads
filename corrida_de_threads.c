@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200112L
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -10,7 +11,7 @@ void* race(void* arg) {
     // LARGADA DOS THREADS!!!!!!!!
     pthread_barrier_wait(&barrier); 
     // faz com que todas as threads parem aqui até que todas estejam prontas, e só depois disso elas vão continuar a corrida
-    //isso garante que a corrida seja justa, porque todas as threads começam ao mesmo tempo
+    // isso garante que a corrida seja justa, porque todas as threads começam ao mesmo tempo
 
     // corrida maluca
     for (int i = 0; i < 100; i++) {
@@ -22,6 +23,7 @@ void* race(void* arg) {
     pthread_mutex_lock(&winner_mutex);
     if (winner_id == -1) { // se ainda não tem vencedor
         winner_id = id; // essa thread é a vencedora
+        printf("Thread %d é a vencedora!\n", id);
     }
     pthread_mutex_unlock(&winner_mutex);
     return NULL;

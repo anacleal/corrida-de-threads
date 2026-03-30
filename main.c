@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200112L /* Or higher */
 #include <stdio.h>
 #include <stdlib.h>
 #include "corrida_de_threads.h"

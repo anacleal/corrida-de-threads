@@ -15,11 +15,3 @@ O computador processa tudo tão rápido que parece simultâneo, mas na verdade e
 Por que a ordem muda?
 1. Interrupções de Hardware: O mouse mexeu, o wifi recebeu um pacote? O processador pode pausar uma thread pra lidar com isso.
 2. Preempção: O SO pode decidir que a Thread 1 já usou tempo demais e parar ela pra dar uma chance pra Thread 2.
-
-Como o SO gerencia tudo?
-O escalonador do so manda em tudo. Ele decide qual thread roda, por quanto tempo, e quando trocar. Ele tenta ser justo, mas também quer manter o sistema responsivo.
-1. Time slicing: O so da alguns millissegundos pra cada thread. Quando esse tempo acaba, ele salva o estado da thread 
-(onde ela parou, quais eram os valores nos registros) e carrega o estado da proxima. "TROCA DE CONTEXTO"
-2. Prioridades: Algumas threads (como a que gerencia o áudio ou o movimento do mouse) têm prioridade maior pra evitar que o sistema pareça "travado".
-3. Multicore: Se o seu processador tem 4 núcleos, ele pode realmente rodar 4 threads ao mesmo tempo (paralelismo real). Se você tivevr 100 threads, o SO vai
-distribuir essas 100 entre os 4 núcleos usando o escalonamento.
